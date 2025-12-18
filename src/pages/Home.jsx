@@ -5,6 +5,10 @@ import {
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
+// 1. IMPORT GAMBAR DARI ASSETS
+// Vite akan menangani path ini secara otomatis saat proses build
+import fotoProfil from '../assets/Foto.jpg'; 
+
 // --- DATA: Fokus ke Skill Teknis ---
 const skills = [
   {
@@ -45,7 +49,7 @@ const featuredProjects = [
   {
     id: 2,
     category: "Case Study",
-    title: "Analisis WiFi Kampus pada mata kuliah Tata Kelola Sistem Informasi",
+    title: "Analisis WiFi Kampus",
     desc: "Studi kasus analisis performa dan kepuasan pengguna terhadap layanan jaringan WiFi di lingkungan universitas.",
     tech: ["System Analysis", "Data Collection", "Reporting"]
   }
@@ -64,7 +68,7 @@ function Home() {
 
   return (
     <div>
-      {/* 1. HERO SECTION: Personal Intro */}
+      {/* 1. HERO SECTION */}
       <section className="container mx-auto px-6 py-20 grid md:grid-cols-2 gap-10 items-center">
         <div className="space-y-6">
           <div className="inline-block px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-bold mb-2">
@@ -72,7 +76,7 @@ function Home() {
           </div>
           <h1 className="text-5xl font-bold text-gray-900 leading-tight">
             Sistem Informasi <br/>
-            <span className="text-blue-600">pelajar</span> & pengemar teknologi<br/>
+            <span className="text-blue-600">Pelajar</span> & Penggemar Teknologi<br/>
           </h1>
           <p className="text-gray-500 max-w-lg text-lg">
             Menggabungkan pemahaman bisnis dan logika pemrograman untuk menciptakan solusi sistem yang efisien.
@@ -87,7 +91,6 @@ function Home() {
             </Link>
           </div>
 
-          {/* Social Proof Icons */}
           <div className="flex gap-4 mt-6 text-gray-400">
             <Github className="hover:text-gray-900 cursor-pointer transition-colors" />
             <Linkedin className="hover:text-blue-700 cursor-pointer transition-colors" />
@@ -95,21 +98,20 @@ function Home() {
           </div>
         </div>
 
-        {/* Gambar Profil / Ilustrasi Abstrak */}
+        {/* Gambar Profil dengan Import Assets */}
         <div className="relative flex justify-center">
           <div className="absolute top-0 right-10 w-40 h-40 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
           <div className="absolute bottom-0 left-10 w-40 h-40 bg-purple-200 rounded-full blur-3xl opacity-30"></div>
           
-          {/* Ganti src ini dengan foto profil aslimu nanti */}
           <img 
-            src="/assets/Foto.jpg" 
-            alt="Profile" 
+            src={fotoProfil} // 2. GUNAKAN VARIABEL HASIL IMPORT
+            alt="Profile Imam Faqih Masduqi" 
             className="rounded-2xl shadow-2xl relative z-10 w-80 h-96 object-cover border-4 border-white rotate-3 hover:rotate-0 transition-all duration-500"
           />
         </div>
       </section>
 
-      {/* 2. SKILLS (Menggantikan Pillars) */}
+      {/* 2. SKILLS */}
       <section className="bg-gray-50 py-20">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
@@ -131,14 +133,13 @@ function Home() {
         </div>
       </section>
 
-      {/* 3. FEATURED PROJECT (Carousel Simplifikasi) */}
+      {/* 3. FEATURED PROJECT */}
       <section className="container mx-auto px-6 py-20">
         <div className="flex justify-between items-end mb-10">
           <div>
             <h2 className="text-3xl font-bold text-gray-900">Project Highlight</h2>
             <p className="text-gray-500 mt-2">Beberapa tugas kuliah dan proyek personal terbaik</p>
           </div>
-          {/* Navigasi Carousel */}
           <div className="flex gap-2">
             <button onClick={prevProject} className="p-2 rounded-full border border-gray-300 hover:bg-gray-100">
               <ArrowLeft size={20} />
@@ -150,7 +151,6 @@ function Home() {
         </div>
 
         <div className="bg-gray-900 rounded-3xl p-8 md:p-12 text-white relative overflow-hidden">
-          {/* Background Decoration */}
           <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600 rounded-full blur-[100px] opacity-20"></div>
 
           <div className="relative z-10">
@@ -164,7 +164,6 @@ function Home() {
               {featuredProjects[currentProject].desc}
             </p>
             
-            {/* Tech Stack Tags */}
             <div className="flex flex-wrap gap-2">
               {featuredProjects[currentProject].tech.map((tech, i) => (
                 <span key={i} className="px-3 py-1 bg-white/10 border border-white/20 rounded-full text-sm">

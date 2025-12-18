@@ -1,8 +1,8 @@
 import { defineConfig } from 'vite'
-import react from '@vitejs/react-swc' // atau @vitejs/plugin-react
+import react from '@vitejs/plugin-react' // Pastikan ini yang tertulis!
 
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: "/Portofolio_prak8/", // Sesuaikan dengan nama repo GitHub kamu!
+  base: "/Portofolio_prak8/", 
 })

@@ -6,34 +6,70 @@ import Navbar from './components/Navbar';
 
 function App() {
   return (
-    // UBAHAN 1: Tambahkan 'flex flex-col' agar layout bisa diatur vertikal
-    <div className="min-h-screen bg-gray-50 text-gray-800 flex flex-col font-sans">
+    // Container Utama: Menggunakan background putih bersih dengan font yang halus
+    <div className="min-h-screen flex flex-col bg-white text-gray-900 font-sans selection:bg-blue-100 selection:text-blue-700">
       
+      {/* Area Navigasi Tetap di Atas */}
       <Navbar />
 
-      {/* UBAHAN 2: Bungkus Routes dengan <main> dan 'flex-grow'. 
-          Ini akan memaksa konten mengisi ruang kosong, sehingga footer terdorong ke bawah.
-          Saya juga menambahkan 'container mx-auto' agar konten tidak mepet pinggir layar. */}
-      <main className="flex-grow container mx-auto px-4 py-8">
+      {/* Main Content Area: 
+          Saya menghapus 'container' di sini agar halaman seperti Home bisa tampil lebar penuh (Full Width).
+          Jika kamu ingin kontennya rapi di tengah, biarkan halaman masing-masing (Home/Projects) yang mengaturnya.
+      */}
+      <main className="flex-grow">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/contact" element={<Contact />} />
+          
+          {/* Halaman 404: Tampilan lebih profesional dan ramah pengguna */}
           <Route 
             path="*" 
             element={
-              <div className="text-center mt-20 text-red-500 font-bold">
-                404 - Halaman Tidak Ditemukan
+              <div className="flex flex-col items-center justify-center min-h-[70vh] px-6 text-center">
+                <div className="w-24 h-24 bg-red-50 text-red-500 rounded-full flex items-center justify-center mb-6 text-4xl animate-bounce">
+                  ⚠️
+                </div>
+                <h1 className="text-4xl font-black text-gray-900 mb-2">Sorry bang halaman home nya masih terpisah</h1>
+                <p className="text-gray-500 max-w-md mb-8 leading-relaxed">
+                  Coba ketik halaman home di navbar ya bang, soalnya halaman home nya masih terpisah dari yang lain.
+                </p>
+                <a 
+                  href="/" 
+                  className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-200 transition-all active:scale-95"
+                >
+                  ketik home di atas
+                </a>
               </div>
             } 
           />
         </Routes>
       </main>
       
-      {/* UBAHAN 3: Ganti teks Footer menjadi branding personal */}
-      <footer className="bg-gray-900 text-gray-300 py-6 text-center text-sm">
-        <p>© 2025 Imam Faqih Masduqi. System Information Student.</p>
-        <p className="text-xs mt-1 opacity-50">dibuat dengan React & Tailwind CSS</p>
+      {/* Footer: Dibuat lebih modern dengan border-top tipis dan branding yang kuat */}
+      <footer className="bg-gray-50 border-t border-gray-100">
+        <div className="container mx-auto px-6 py-10">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="text-center md:text-left">
+              <h2 className="text-lg font-extrabold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                Imam Faqih Masduqi
+              </h2>
+              <p className="text-gray-400 text-xs mt-1 font-medium tracking-widest uppercase">
+                System Information Student • Portofolio 2025
+              </p>
+            </div>
+            
+            <div className="flex flex-col items-center md:items-end text-sm text-gray-400">
+              <p>© 2025 Imam Faqih Masduqi. All Rights Reserved.</p>
+              <div className="mt-1 flex items-center gap-2">
+                <span>Dibuat dengan</span>
+                <span className="text-blue-500 font-semibold">React</span>
+                <span>&</span>
+                <span className="text-cyan-500 font-semibold">Tailwind</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </footer>
 
     </div>
