@@ -35,7 +35,6 @@ function App() {
                   Coba ketik halaman home di navbar ya bang, soalnya halaman home nya masih terpisah dari yang lain.
                 </p>
                 <a 
-                  href="/" 
                   className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-200 transition-all active:scale-95"
                 >
                   ketik home di atas
