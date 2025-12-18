@@ -1,4 +1,4 @@
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import Contact from './pages/Contact';
@@ -30,15 +30,16 @@ function App() {
                 <div className="w-24 h-24 bg-red-50 text-red-500 rounded-full flex items-center justify-center mb-6 text-4xl animate-bounce">
                   ⚠️
                 </div>
-                <h1 className="text-4xl font-black text-gray-900 mb-2">Sorry bang halaman home nya masih terpisah</h1>
+                <h1 className="text-4xl font-black text-gray-900 mb-2">Halaman Tidak Ditemukan</h1>
                 <p className="text-gray-500 max-w-md mb-8 leading-relaxed">
-                  Coba ketik halaman home di navbar ya bang, soalnya halaman home nya masih terpisah dari yang lain.
+                  Sepertinya jalur yang kamu tuju salah atau sudah dipindahkan. Silakan kembali ke halaman utama untuk melanjutkan penjelajahan.
                 </p>
-                <a 
+                <Link 
+                  to="/" 
                   className="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700 hover:shadow-xl hover:shadow-blue-200 transition-all active:scale-95"
                 >
-                  ketik home di atas
-                </a>
+                  Balik ke Home
+                </Link>
               </div>
             } 
           />
